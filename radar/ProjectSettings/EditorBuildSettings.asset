@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/radar.unity
+    guid: 28d2cf2023e8a454f8d6cbc2d357bc66
   m_configObjects: {}
