@@ -7,6 +7,7 @@ public class speedCalc : MonoBehaviour
     public TextMeshProUGUI text;
     public List<RadarRay> rays = new List<RadarRay>();
     public float speed;
+    public Vector3 pos;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,8 @@ public class speedCalc : MonoBehaviour
     {
         speed = CalculteSpeed();
         speed = (float)System.Math.Round(speed, 2);
-        text.text = "speed of player: " + speed;
+        pos = CalculatePos();
+        text.text = "speed of player: " + speed + "\n position is: " + pos;
     }
     float CalculteSpeed()
     {
@@ -42,5 +44,23 @@ public class speedCalc : MonoBehaviour
             return tempSpeed / k;
         else
             return 0;
+    }
+    Vector3 CalculatePos()
+    {
+        Vector3 tempPos = Vector3.zero;
+        int k = 0;
+        foreach (RadarRay ray in rays)
+        {
+            if (ray.timeSinceLastHit < 1)
+            {
+                tempPos += ray.newHit;
+                k++;
+            }
+
+        }
+        if (k > 0)
+            return tempPos / k;
+        else
+            return Vector3.zero;
     }
 }

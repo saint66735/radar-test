@@ -6,7 +6,7 @@ public class RadarRay : MonoBehaviour
 {
     public GameObject mark;
     Vector3 lastHit;
-    Vector3 newHit;
+    public Vector3 newHit;
 
     float lastHitTime;
     float newHitTime;
